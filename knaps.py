@@ -42,7 +42,7 @@ def progress():
     with st.spinner("Bentar ya....."):
         time.sleep(1)
         
-st.title("UAS PENDAT")
+st.title("PROJECT PENAMBANGAN DATA C")
 
 dataframe, preporcessing, modeling, implementation = st.tabs(
     ["Jamur Data", "Prepocessing", "Modeling", "Implementation"])
