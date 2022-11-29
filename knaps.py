@@ -112,7 +112,7 @@ with modeling:
         print('precision_Naive Bayes: %.3f' %precision)
         print('recall_Naive Bayes: %.3f' %recall)
         print('f1-score_Naive Bayes : %.3f' %f1)
-        st.success(acuraccy)
+        st.success(accuracy)
         
 with implementation:
       df=df[:2000]
