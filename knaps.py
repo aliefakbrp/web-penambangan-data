@@ -158,21 +158,21 @@ with implementation:
         sporeprintcolor=st.text_input('spore-print-color')
         population=st.text_input('population')
         habitat=st.text_input('habitat')
-#       x_new = ['x','y','y','t','l','f','c','b','g','e','c','s','s','w','w','p','w','o','p','k','s','m'] # hasil=0/e
-      x_new = [capshape,capsurface,capcolor,bruises,odor,gillattachment,gillspacing,gillsize,gillcolor,stalkshape,stalkroot,stalksurfaceabovering,stalksurfacebelowring,stalkcolorabovering,stalkcolorbelowring,veiltype,veilcolor,ringnumber,ringtype,sporeprintcolor,population,habitat] # hasil=1/p
-      hinput=enc.transform(np.array([x_new]))
-      hinput
-      from sklearn.neighbors import KNeighborsClassifier
-      knn = KNeighborsClassifier(n_neighbors=3)
-      knn.fit(x_train,y_train)
-      Y_pred = knn.predict(x_test) 
-      accuracy_knn=round(accuracy_score(y_test,Y_pred)* 100, 2)
-      acc_knn = round(knn.score(x_train, y_train) * 100, 2)
-      accuracy_knn
-      acc_knn
-      y_predict = knn.predict(hinput)
-      st.write("Hasil prediksi adalah",y_predict[0])
-      # return y_predict[0]
+#x_new = ['x','y','y','t','l','f','c','b','g','e','c','s','s','w','w','p','w','o','p','k','s','m'] # hasil=0/e
+        x_new = [capshape,capsurface,capcolor,bruises,odor,gillattachment,gillspacing,gillsize,gillcolor,stalkshape,stalkroot,stalksurfaceabovering,stalksurfacebelowring,stalkcolorabovering,stalkcolorbelowring,veiltype,veilcolor,ringnumber,ringtype,sporeprintcolor,population,habitat] # hasil=1/p
+        hinput=enc.transform(np.array([x_new]))
+        hinput
+        from sklearn.neighbors import KNeighborsClassifier
+        knn = KNeighborsClassifier(n_neighbors=3)
+        knn.fit(x_train,y_train)
+        Y_pred = knn.predict(x_test) 
+        accuracy_knn=round(accuracy_score(y_test,Y_pred)* 100, 2)
+        acc_knn = round(knn.score(x_train, y_train) * 100, 2)
+        accuracy_knn
+        acc_knn
+        y_predict = knn.predict(hinput)
+        st.write("Hasil prediksi adalah",y_predict[0])
+        # return y_predict[0]
 
 
 
