@@ -113,6 +113,10 @@ with modeling:
         print('recall_Naive Bayes: %.3f' %recall)
         print('f1-score_Naive Bayes : %.3f' %f1)
         st.success(accuracy)
+        label_nb = pd.DataFrame(
+        data={'Label Test': y_test, 'Label Predict': y_pred})
+        label_nb
+        
         
     with decisiontree:
         from sklearn.tree import DecisionTreeClassifier
