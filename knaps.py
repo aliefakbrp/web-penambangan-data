@@ -130,12 +130,12 @@ with modeling:
         data_predic
         
 with implementation:
-      df=df[:2000]
-      from sklearn.preprocessing import OrdinalEncoder
-      x = df.drop(df[['class']],axis=1)
-      enc = OrdinalEncoder()
-      a = enc.fit_transform(x)
-      x=pd.DataFrame(a, columns=x.columns)
+        df=df[:2000]
+        from sklearn.preprocessing import OrdinalEncoder
+        x = df.drop(df[['class']],axis=1)
+        enc = OrdinalEncoder()
+        a = enc.fit_transform(x)
+        x=pd.DataFrame(a, columns=x.columns)
         capshape=st.text_input('cap-shape')
         capsurface=st.text_input('cap-surface')
         capcolor=st.text_input('cap-color')
