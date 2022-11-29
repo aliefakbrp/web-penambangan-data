@@ -164,6 +164,31 @@ with implementation:
         hinput
         clf_pf = GaussianNB()
         clf_pf.predict([hinput])
+        #Metrics
+        from sklearn.metrics import make_scorer, accuracy_score,precision_score
+        from sklearn.metrics import classification_report
+        from sklearn.metrics import confusion_matrix
+        from sklearn.metrics import accuracy_score ,precision_score,recall_score,f1_score
+
+        #Model Select
+        from sklearn.model_selection import KFold,train_test_split,cross_val_score
+        from sklearn.ensemble import RandomForestClassifier
+        from sklearn.model_selection import train_test_split
+        from sklearn.linear_model import  LogisticRegression
+        from sklearn.ensemble import RandomForestClassifier
+        from sklearn import linear_model
+        from sklearn.linear_model import SGDClassifier
+        from sklearn.tree import DecisionTreeClassifier
+        from sklearn.neighbors import KNeighborsClassifier
+        from sklearn.svm import SVC, LinearSVC
+        from sklearn.naive_bayes import GaussianNB
+        from sklearn.preprocessing import LabelEncoder
+        le = LabelEncoder()
+        y = le.fit_transform(y)
+        gaussian = GaussianNB()
+        gaussian.fit(x_train, y_train)
+        y_pred = gaussian.predict(hinput) 
+        st.write(y_pred)
 #         from sklearn.neighbors import KNeighborsClassifier
 #         knn = KNeighborsClassifier(n_neighbors=3)
 #         knn.fit(x_train,y_train)
