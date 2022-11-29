@@ -187,7 +187,7 @@ with implementation:
         y = le.fit_transform(y)
         gaussian = GaussianNB()
         gaussian.fit(x_train, y_train)
-        y_pred = gaussian.predict(hinput) 
+        y_pred = gaussian.predict(x_new) 
         st.write(y_pred)
 #         from sklearn.neighbors import KNeighborsClassifier
 #         knn = KNeighborsClassifier(n_neighbors=3)
