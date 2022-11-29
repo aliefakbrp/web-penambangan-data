@@ -74,7 +74,47 @@ with modeling:
       st.success(f'Tingkat akurasi = {acc_knn}')
       st.dataframe(label_knn)
 
-with implementation:
+    with naivebayes:
+        #Metrics
+        from sklearn.metrics import make_scorer, accuracy_score,precision_score
+        from sklearn.metrics import classification_report
+        from sklearn.metrics import confusion_matrix
+        from sklearn.metrics import accuracy_score ,precision_score,recall_score,f1_score
+
+        #Model Select
+        from sklearn.model_selection import KFold,train_test_split,cross_val_score
+        from sklearn.ensemble import RandomForestClassifier
+        from sklearn.model_selection import train_test_split
+        from sklearn.linear_model import  LogisticRegression
+        from sklearn.ensemble import RandomForestClassifier
+        from sklearn import linear_model
+        from sklearn.linear_model import SGDClassifier
+        from sklearn.tree import DecisionTreeClassifier
+        from sklearn.neighbors import KNeighborsClassifier
+        from sklearn.svm import SVC, LinearSVC
+        from sklearn.naive_bayes import GaussianNB
+        from sklearn.preprocessing import LabelEncoder
+        le = LabelEncoder()
+        y = le.fit_transform(y)
+        gaussian = GaussianNB()
+        gaussian.fit(x_train, y_train)
+        y_pred = gaussian.predict(x_test) 
+        accuracy_nb=round(accuracy_score(y_test,y_pred)* 100, 2)
+        acc_gaussian = round(gaussian.score(x_train, y_train) * 100, 2)
+
+        cm = confusion_matrix(y_test, y_pred)
+        accuracy = accuracy_score(y_test,y_pred)
+        precision =precision_score(y_test, y_pred,average='micro')
+        recall =  recall_score(y_test, y_pred,average='micro')
+        f1 = f1_score(y_test,y_pred,average='micro')
+        print('Confusion matrix for Naive Bayes\n',cm)
+        print('accuracy_Naive Bayes: %.3f' %accuracy)
+        print('precision_Naive Bayes: %.3f' %precision)
+        print('recall_Naive Bayes: %.3f' %recall)
+        print('f1-score_Naive Bayes : %.3f' %f1)
+        st.success(acuraccy)
+        
+        with implementation:
       df=df[:2000]
       from sklearn.preprocessing import OrdinalEncoder
       x = df.drop(df[['class']],axis=1)
