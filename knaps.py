@@ -136,7 +136,7 @@ with implementation:
         enc = OrdinalEncoder()
         a = enc.fit_transform(x)
         x=pd.DataFrame(a, columns=x.columns)
-        capshape=st.text_input('cap-shape: bell=b,conical=c,convex=x,flat=f, knobbed=k,sunken=s')
+        capshape=st.text_input('cap-shape: * bell=b,conical=c,convex=x,flat=f, knobbed=k,sunken=s')
         capsurface=st.text_input('cap-surface')
         capcolor=st.text_input('cap-color')
         bruises=st.text_input('bruises')
