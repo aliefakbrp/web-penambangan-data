@@ -136,7 +136,7 @@ with implementation:
         enc = OrdinalEncoder()
         a = enc.fit_transform(x)
         x=pd.DataFrame(a, columns=x.columns)
-        capshape=st.text_input('cap-shape: * bell=b,conical=c,convex=x,flat=f, knobbed=k,sunken=s')
+        capshape=st.text_input('cap-shape: bell=b,conical=c,convex=x,flat=f, knobbed=k,sunken=s')
         capsurface=st.text_input('cap-surface')
         capcolor=st.text_input('cap-color')
         bruises=st.text_input('bruises')
@@ -162,16 +162,18 @@ with implementation:
         x_new = [capshape,capsurface,capcolor,bruises,odor,gillattachment,gillspacing,gillsize,gillcolor,stalkshape,stalkroot,stalksurfaceabovering,stalksurfacebelowring,stalkcolorabovering,stalkcolorbelowring,veiltype,veilcolor,ringnumber,ringtype,sporeprintcolor,population,habitat] # hasil=1/p
         hinput=enc.transform(np.array([x_new]))
         hinput
-        from sklearn.neighbors import KNeighborsClassifier
-        knn = KNeighborsClassifier(n_neighbors=3)
-        knn.fit(x_train,y_train)
-        Y_pred = knn.predict(x_test) 
-        accuracy_knn=round(accuracy_score(y_test,Y_pred)* 100, 2)
-        acc_knn = round(knn.score(x_train, y_train) * 100, 2)
-        accuracy_knn
-        acc_knn
-        y_predict = knn.predict(hinput)
-        st.write("Hasil prediksi adalah",y_predict[0])
+        clf_pf = GaussianNB()
+        clf_pf.predict([hinput])
+#         from sklearn.neighbors import KNeighborsClassifier
+#         knn = KNeighborsClassifier(n_neighbors=3)
+#         knn.fit(x_train,y_train)
+#         Y_pred = knn.predict(x_test) 
+#         accuracy_knn=round(accuracy_score(y_test,Y_pred)* 100, 2)
+#         acc_knn = round(knn.score(x_train, y_train) * 100, 2)
+#         accuracy_knn
+#         acc_knn
+#         y_predict = knn.predict(hinput)
+#         st.write("Hasil prediksi adalah",y_predict[0])
         # return y_predict[0]
 
 
