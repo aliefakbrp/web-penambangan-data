@@ -60,9 +60,9 @@ with preporcessing:
 
 with modeling:
     # pisahkan fitur dan label
-    knn,lainnya= st.tabs(
-        ["K-Nearest Neighbor","lainnya"])
-with knn:
+    knn,naivebayes= st.tabs(
+        ["K-Nearest Neighbor","naivebayes"])
+    with knn:
       from sklearn.neighbors import KNeighborsClassifier
       knn = KNeighborsClassifier(n_neighbors=3)
       knn.fit(x_train,y_train)
@@ -74,7 +74,7 @@ with knn:
       st.success(f'Tingkat akurasi = {acc_knn}')
       st.dataframe(label_knn)
 
-with naivebayes:
+    with naivebayes:
         #Metrics
         from sklearn.metrics import make_scorer, accuracy_score,precision_score
         from sklearn.metrics import classification_report
