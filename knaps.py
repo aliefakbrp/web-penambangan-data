@@ -146,7 +146,7 @@ with implementation:
       gillsize=st.text_input('gill-size')
       gillcolor=st.text_input('gill-color')
 #       x_new = ['x','y','y','t','l','f','c','b','g','e','c','s','s','w','w','p','w','o','p','k','s','m'] # hasil=0/e
-      x_new = ["x","s","w","t","p","f","c","n","k","e","e","s","s","w","w","p","w","o","p","k","v","g"] # hasil=1/p
+      x_new = [capshape,"s","w","t","p","f","c","n","k","e","e","s","s","w","w","p","w","o","p","k","v","g"] # hasil=1/p
       hinput=enc.transform(np.array([x_new]))
       hinput
       from sklearn.neighbors import KNeighborsClassifier
