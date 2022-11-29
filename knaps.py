@@ -60,8 +60,8 @@ with preporcessing:
 
 with modeling:
     # pisahkan fitur dan label
-    knn,naivebayes= st.tabs(
-        ["K-Nearest Neighbor","naivebayes"])
+    knn,naivebayes,decisiontree= st.tabs(
+        ["K-Nearest Neighbor","naivebayes","decisiontree"])
     with knn:
       from sklearn.neighbors import KNeighborsClassifier
       knn = KNeighborsClassifier(n_neighbors=3)
@@ -113,6 +113,17 @@ with modeling:
         print('recall_Naive Bayes: %.3f' %recall)
         print('f1-score_Naive Bayes : %.3f' %f1)
         st.success(accuracy)
+        
+    with decisiontree:
+        from sklearn.tree import DecisionTreeClassifier
+        d3 = DecisionTreeClassifier()
+        d3.fit(x_train, y_train)
+        y_predic = d3.predict(x_test)
+        data_predic = pd.concat([pd.DataFrame(y_test).reset_index(drop=True), pd.DataFrame(y_predic, columns=["Predict"]).reset_index(drop=True)], axis=1)        
+        from sklearn.metrics import accuracy_score
+        a=f'acuraty = {"{:,.2f}".format(accuracy_score(y_test, y_predic)*100)}%'
+        st.success(a)
+        data_predic
         
 with implementation:
       df=df[:2000]
